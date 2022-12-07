@@ -16,6 +16,7 @@ public class ProjectPushBot extends Project{
 
     public DcMotor backright = null;
     public DcMotor backleft = null;
+    public DcMotor intake = null;
 
     @Override
     public void init(HardwareMap ahwMap) {
@@ -26,17 +27,20 @@ public class ProjectPushBot extends Project{
         //Define and Initialize Motors
         backright = hwMap.dcMotor.get("backright"); //port c0
         backleft = hwMap.dcMotor.get("backleft"); //port e3
-
+        intake = hwMap.dcMotor.get("intake");
 
         //Setup Motor directions and Encoder settings
         backright.setDirection(DcMotor.Direction.FORWARD);
         backleft.setDirection(DcMotor.Direction.REVERSE);
+        intake.setDirection(DcMotor.Direction.FORWARD);
 
         backright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         backright.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backleft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        intake.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // Set all motors to zero power
         Stop();
@@ -46,6 +50,7 @@ public class ProjectPushBot extends Project{
 
         backright.setPower(0);
         backleft.setPower(0);
+        intake.setPower(0);
 
 
 
