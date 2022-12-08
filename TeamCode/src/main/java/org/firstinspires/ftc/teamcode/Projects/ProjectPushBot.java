@@ -25,9 +25,9 @@ public class ProjectPushBot extends Project{
 
 
         //Define and Initialize Motors
-        backright = hwMap.dcMotor.get("backright"); //port c0
-        backleft = hwMap.dcMotor.get("backleft"); //port e3
-        intake = hwMap.dcMotor.get("intake");
+        backright = hwMap.dcMotor.get("rightMotor"); //port c0
+        backleft = hwMap.dcMotor.get("leftMotor"); //port e3
+        intake = hwMap.dcMotor.get("linearSlide");
 
         //Setup Motor directions and Encoder settings
         backright.setDirection(DcMotor.Direction.FORWARD);

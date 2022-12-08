@@ -15,19 +15,19 @@ public class TankDrive extends LinearOpMode {
         //connects configuration to code
         robot.init(hardwareMap);
         waitForStart();
-        boolean intakeOpen = false;
+
         while(opModeIsActive()) {
             //driving controls
             robot.backleft.setPower(-gamepad1.left_stick_y);
             robot.backright.setPower(-gamepad1.right_stick_y);
-            if(gamepad1.a && !intakeOpen){
+            if(gamepad1.a){
                 robot.intake.setPower(1);
-                sleep(500);
-                robot.intake.setPower(0);
             }
-            else if (gamepad1.a && intakeOpen){
+            else if (gamepad1.x){
                 robot.intake.setPower(-1);
-                sleep(500);
+
+            }
+            else{
                 robot.intake.setPower(0);
             }
         }
